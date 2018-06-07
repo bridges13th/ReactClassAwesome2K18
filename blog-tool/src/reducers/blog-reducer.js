@@ -52,10 +52,13 @@ export const blogReducer = (state = initialState, action) => {
             };
 
         case actionTypes.CHANGE_PAGE:
-            return {
-                ...state,
-                page: Number(action.newPage),
-            }
+            if (action.newPage * 5 > state.entries.length)
+                return state;
+            else
+                return {
+                    ...state,
+                    page: Number(action.newPage),
+                }
 
         default:
             return state;
