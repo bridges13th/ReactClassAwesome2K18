@@ -1,0 +1,57 @@
+header {
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgoldenrodyellow;
+  border: goldenrod solid 10px;
+  border-radius: 15px;
+  border-top: none;
+  border-bottom: none;
+  text-align: center;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;  
+}
+
+form {
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgray;
+  border-left-color: gray;
+
+  border-left: solid gray 10px;
+  border-radius: 15px;  
+}
+
+
+ul {
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgreen;  
+  border-left: solid green 10px;
+  border-radius: 15px;
+}
+
+li{
+  margin-left:20px;
+}
+
+button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.USD-currency::before {
+  content: '$';
+}
+
+.EUR-currency::before {
+  content: '€';
+}
+
+.INR-currency::before {
+  content: '₹';
+}

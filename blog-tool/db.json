@@ -1,0 +1,11 @@
+{
+  "blogEntries": [
+    {},
+    {
+      "id": 1,
+      "title": "bla",
+      "published": "date",
+      "body": "bla bla bla for400 characters"
+    }
+  ]
+}
