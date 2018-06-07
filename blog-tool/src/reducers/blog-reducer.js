@@ -1,10 +1,11 @@
 import { actionTypes } from '../actions/blogActionTypes'
 
-const PREVIEW_MODE = 'PREVIEW_MODE';
-const BLOG_VIEW_MODE = 'BLOG_VIEW_MODE';
+export const PREVIEW_MODE = 'PREVIEW_MODE';
+export const BLOG_VIEW_MODE = 'BLOG_VIEW_MODE';
+export const ADMIN_MODE = 'ADMIN_MODE';
 
 const initialState = {
-    mode: '',   //"preview", "blogView"
+    mode: PREVIEW_MODE,   //"preview", "blogView"
     entries: [],    //Blog Entries
 
     //Workflow 1
@@ -16,6 +17,8 @@ const initialState = {
 }
 
 export const blogReducer = (state = initialState, action) => {
+    console.log("Blog Reducer State", state);
+    console.log("Blog Reducer Action", action);
     switch (action.type) {
         //Shared Workflows
         case actionTypes.LOAD_ALL_BLOGS_REQUEST:
@@ -60,6 +63,20 @@ export const blogReducer = (state = initialState, action) => {
                 mode: PREVIEW_MODE,
                 page: 0,
             };
+        case actionTypes.ENTER_ADMIN:
+            return {
+                ...state,
+                mode: ADMIN_MODE,
+            }
+
+        case actionTypes.CHANGE_PAGE:
+            if (action.newPage * 5 > state.entries.length)
+                return state;
+            else
+                return {
+                    ...state,
+                    page: Number(action.newPage),
+                }
 
         default:
             return state;

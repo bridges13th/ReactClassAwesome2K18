@@ -15,4 +15,7 @@ export const actionTypes = KeyMirror({
     //Blog View Actoins (Workflow 2)
     ENTER_BLOG_VIEW: null,
     ENTER_PREVIEW: null,
+    ENTER_ADMIN: null,
+
+    CHANGE_PAGE: null,
 });
