@@ -14,6 +14,8 @@ const initialState = {
 }
 
 export const blogReducer = (state = initialState, action) => {
+    console.log("Blog Reducer State", state);
+    console.log("Blog Reducer Action", action);
     switch (action.type) {
         //Shared Workflows
         case actionTypes.LOAD_ALL_BLOGS_REQUEST:
@@ -48,6 +50,12 @@ export const blogReducer = (state = initialState, action) => {
                 mode: PREVIEW_MODE,
                 page: 0,
             };
+
+        case actionTypes.CHANGE_PAGE:
+            return {
+                ...state,
+                page: Number(action.newPage),
+            }
 
         default:
             return state;

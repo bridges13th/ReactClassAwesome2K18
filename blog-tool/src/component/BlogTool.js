@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { PreviewTool } from './blog-components/PreviewTool'
 //import minion tools here
 
 export class BlogTool extends React.Component {
@@ -10,19 +11,15 @@ export class BlogTool extends React.Component {
 
     render() {
         return <React.Fragment>
+            {console.log("BlogTool", this.props)}
             <span>Workflow 1: Add Entries!</span>
             <div>Workflow 2: Display all entries!</div>
-            <div>
-                <ul>
-                    {this.props.entries.map(entry =>
-                        <li key={entry.id}>
-                            <div>Title: {entry.title}</div>
-                            <div>Published: {entry.published} </div>
-                            <div>Body: {entry.body}</div>
-                        </li>
-                    )}
-                </ul>
-            </div>
+            <PreviewTool
+                entries={this.props.entries}
+                page={this.props.page}
+                nextPage={this.props.nextPage}
+                prevPage={this.props.prevPage}
+            />
         </React.Fragment>;
     }
 };
