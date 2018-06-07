@@ -12,19 +12,19 @@ export class Entry extends React.Component {
     render() {
         console.log("Entry", this.props.entry);
         return <React.Fragment>
-            <div>
+            <div className="Entry">
                 <h1>{this.props.entry.title}</h1>
                 <h2>{this.props.entry.published}</h2>
                 <p>{this.props.entry.body}</p>
                 {this.props.entry.comments === undefined ?
-                <span>Be the first to comment!</span>
-                : <ul className="comment-block">
-                    {this.props.entry.comments.map(comment =>
-                        <li key={comment.id}>
-                            <CommentView comment={comment} />
-                        </li>
-                    )}
-                </ul>
+                    <span>Be the first to comment!</span>
+                    : <ul className="comment-block">
+                        {this.props.entry.comments.map(comment =>
+                            <li key={comment.id}>
+                                <CommentView comment={comment} />
+                            </li>
+                        )}
+                    </ul>
                 }
                 <div><button
                     type="button"
