@@ -2,6 +2,7 @@ import { actionTypes } from '../actions/blogActionTypes'
 
 export const PREVIEW_MODE = 'PREVIEW_MODE';
 export const BLOG_VIEW_MODE = 'BLOG_VIEW_MODE';
+export const ADMIN_MODE = 'ADMIN_MODE';
 
 const initialState = {
     mode: PREVIEW_MODE,   //"preview", "blogView"
@@ -50,6 +51,11 @@ export const blogReducer = (state = initialState, action) => {
                 mode: PREVIEW_MODE,
                 page: 0,
             };
+        case actionTypes.ENTER_ADMIN:
+            return {
+                ...state,
+                mode: ADMIN_MODE,
+            }
 
         case actionTypes.CHANGE_PAGE:
             if (action.newPage * 5 > state.entries.length)

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Entry } from './blog-components/Entry';
 import { PreviewTool } from './blog-components/PreviewTool'
 
-import { PREVIEW_MODE, BLOG_VIEW_MODE } from '../reducers/blog-reducer'
+import { PREVIEW_MODE, BLOG_VIEW_MODE, ADMIN_MODE } from '../reducers/blog-reducer'
 //import minion tools here
 
 export class BlogTool extends React.Component {
@@ -16,8 +16,17 @@ export class BlogTool extends React.Component {
         console.log("BlogTool", this.props.entries);
         return <React.Fragment>
             {console.log("BlogTool", this.props)}
-            <span>Workflow 1: Add Entries!</span>
-            <div>Workflow 2: Display all entries!</div>
+            <h1>Blog-Anon </h1>
+            {(this.props.mode === ADMIN_MODE) ?
+
+                <a onClick={() => { return this.props.changePreview() }}>
+                    [View Blog]
+                </a>
+                : <a onClick={() => { return this.props.changeAdmin() }}>
+                    [Admin Blog]
+            </a>
+            }
+
             {this.props.mode === PREVIEW_MODE ?
                 <PreviewTool
                     entries={this.props.entries}
@@ -25,13 +34,19 @@ export class BlogTool extends React.Component {
                     nextPage={this.props.nextPage}
                     prevPage={this.props.prevPage}
                     changeBlogView={this.props.changeBlogView}
-                />
-                : <Entry
-                                        
+                /> : null
+            }
+            {this.props.mode === BLOG_VIEW_MODE ?
+                <Entry
+
                     entry={this.props.entries.find(entry => entry.id == this.props.id)}
 
                     changePreview={this.props.changePreview}
-                />
+                /> : null
+            }
+            {this.props.mode === ADMIN_MODE ?
+                <div>This is where the admin stuff goes</div>
+                : null
             }
         </React.Fragment>;
     }

@@ -6,7 +6,6 @@ import { BlogTool } from './BlogTool'
 //Add import actoins hree
 import { loadAllBlogs } from '../actions/load-all-blogs'
 import * as PreviewActions from '../actions/preview-actions'
-import { changeBlogView, changePreview} from '../actions/change-blog-mode';
 import * as ModeActions from '../actions/change-blog-mode';
 
 //One container to rule them all
@@ -33,6 +32,7 @@ const mapDispatchToPropsForBlogTool = dispatch => bindActionCreators({
     nextPage: PreviewActions.nextPage,
     changeBlogView: ModeActions.enterBlogViewActionCreator,
     changePreview: ModeActions.enterPreviewActionCreator,
+    changeAdmin: ModeActions.enterAdminActionCreator,
 }, dispatch);
 
 export const BlogToolContainer = connect(
