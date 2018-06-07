@@ -8,6 +8,9 @@ export const actionTypes = KeyMirror({
     ADD_BLOG_DONE: null,
     EDIT_BLOG_REQUEST: null,
     EDIT_BLOG_DONE: null,
+    ADD_COMMENT_REQUEST: null,
+    ADD_COMMENT_DONE: null,
+
 
     //Blog View Actoins (Workflow 2)
     ENTER_BLOG_VIEW: null,
