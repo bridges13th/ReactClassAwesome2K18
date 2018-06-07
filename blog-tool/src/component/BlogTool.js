@@ -40,7 +40,7 @@ export class BlogTool extends React.Component {
                 <Entry
 
                     entry={this.props.entries.find(entry => entry.id == this.props.id)}
-
+                    onSubmitComment={this.props.onSubmitComment}
                     changePreview={this.props.changePreview}
                 /> : null
             }

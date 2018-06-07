@@ -2,6 +2,7 @@ import * as React from 'react';
 
 //import minion tools here
 import { CommentView } from './CommentView'
+import { CommentForm } from './CommentForm'
 
 export class Entry extends React.Component {
     componentDidMount() {
@@ -17,7 +18,7 @@ export class Entry extends React.Component {
                 <h2>{this.props.entry.published}</h2>
                 <p>{this.props.entry.body}</p>
                 {this.props.entry.comments === undefined ?
-                    <span>Be the first to comment!</span>
+                    <CommentForm onSubmitComment={this.props.onSubmitComment} />
                     : <ul className="comment-block">
                         {this.props.entry.comments.map(comment =>
                             <li key={comment.id}>
