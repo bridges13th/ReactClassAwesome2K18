@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { EditBlogTable } from './blog-components/EditBlogTable'
+import { AddBlogForm } from './blog-components/AddBlogForm';
 import { Entry } from './blog-components/Entry';
 import { PreviewTool } from './blog-components/PreviewTool'
 
@@ -15,6 +17,7 @@ export class BlogTool extends React.Component {
     render() {
         console.log("BlogTool", this.props.entries);
         return <React.Fragment>
+
             {console.log("BlogTool", this.props)}
             <h1>Blog-Anon </h1>
             {(this.props.mode === ADMIN_MODE) ?
@@ -45,7 +48,17 @@ export class BlogTool extends React.Component {
                 /> : null
             }
             {this.props.mode === ADMIN_MODE ?
-                <div>This is where the admin stuff goes</div>
+                <React.Fragment>
+                    <EditBlogTable
+                        entries={this.props.entries}
+                        onEditBlogEntry={this.props.onEditBlogEntry}
+                        onDeleteBlogEntry={this.props.onDeleteBlogEntry}
+                        onSaveBlog={this.props.onSaveBlog}
+                        loadAllBlogs={this.props.loadAllBlogs}
+                        blogEntryToEdit={this.props.blogEntryToEdit}
+                    />
+                    <AddBlogForm onSubmitBlog={this.props.addBlog} loadAllBlogs={this.props.loadAllBlogs} />
+                </React.Fragment>
                 : null
             }
         </React.Fragment>;
