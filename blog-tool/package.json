@@ -21,8 +21,8 @@
     "rest": "json-server -p 3050 --watch db.json"
   },
   "devDependencies": {
-    "redux-devtools-extension": "2.13.2",
     "concurrently": "^3.5.1",
-    "json-server": "^0.13.0"
+    "json-server": "^0.13.0",
+    "redux-devtools-extension": "2.13.2"
   }
 }

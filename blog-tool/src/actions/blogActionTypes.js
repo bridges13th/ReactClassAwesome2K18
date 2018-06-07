@@ -6,9 +6,12 @@ export const actionTypes = KeyMirror({
     LOAD_ALL_BLOGS_DONE: null,
     ADD_BLOG_REQUEST: null,
     ADD_BLOG_DONE: null,
-    EDIT_BLOG_REQUEST: null,
-    EDIT_BLOG_DONE: null,
-
+    EDIT_BLOG: null,
+    SAVE_BLOG_REQUEST: null,
+    SAVE_BLOG_DONE: null,
+    REMOVE_BLOG_REQUEST: null,
+    REMOVE_BLOG_DONE: null,
+    
     //Blog View Actoins (Workflow 2)
     ENTER_BLOG_VIEW: null,
     ENTER_PREVIEW: null,
