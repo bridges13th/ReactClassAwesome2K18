@@ -41,10 +41,10 @@ export class BlogTool extends React.Component {
             }
             {this.props.mode === BLOG_VIEW_MODE ?
                 <Entry
-
                     entry={this.props.entries.find(entry => entry.id == this.props.id)}
                     onSubmitComment={this.props.onSubmitComment}
                     changePreview={this.props.changePreview}
+                    loadAllBlogs={this.props.loadAllBlogs}
                 /> : null
             }
             {this.props.mode === ADMIN_MODE ?

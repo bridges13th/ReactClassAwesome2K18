@@ -10,6 +10,7 @@ import { addBlog } from '../actions/add-blog';
 import { removeBlog } from '../actions/delete-blog';
 import * as PreviewActions from '../actions/preview-actions'
 import * as ModeActions from '../actions/change-blog-mode';
+import { addComment} from '../actions/add-comment';
 
 //One container to rule them all
 const mapStateToPropsForBlogTool = state => {
@@ -46,6 +47,9 @@ const mapDispatchToPropsForBlogTool = dispatch => bindActionCreators({
     changeBlogView: ModeActions.enterBlogViewActionCreator,
     changePreview: ModeActions.enterPreviewActionCreator,
     changeAdmin: ModeActions.enterAdminActionCreator,
+
+    //Workflow 3: Comments
+    onSubmitComment: addComment
 }, dispatch);
 
 export const BlogToolContainer = connect(

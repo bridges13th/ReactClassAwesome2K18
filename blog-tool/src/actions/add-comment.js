@@ -1,17 +1,24 @@
-import { blogActionTypes } from './blogActionTypes';
+import { actionTypes } from './blogActionTypes';
+import {collectionURL} from './add-blog'
 
-export const addCommentRequestActionCreator = () => ({ type: blogActionTypes.ADD_COMMENT_REQUEST });
-export const addCommentDoneActionCreator = blog => ({ type: blogActionTypes.ADD_COMMENT_DONE, blog });
+export const addCommentRequestActionCreator = () => ({ type: actionTypes.ADD_COMMENT_REQUEST });
+export const addCommentDoneActionCreator = blog => ({ type: actionTypes.ADD_COMMENT_DONE, blog });
 
-export const addComment = comment => {
+const getElementURL = (id) => {
+    return `${collectionURL}/${encodeURIComponent(id)}`;
+}
+
+
+export const addComment = blog => {
+    console.log("addComment", blog);
     return dispatch => {
         dispatch(addCommentRequestActionCreator());
-        return fetch('http://localhost:3050/blogEnteries/', { 
-            method: 'POST',
+        return fetch(getElementURL(blog.id), { 
+            method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(comment),
+            body: JSON.stringify(blog),
         })
             .then(res => res.json())
-            .then(blog => dispatch(addCommentDoneActionCreator(comment)));
+            .then(blog => dispatch(addCommentDoneActionCreator(blog)));
     };
 };

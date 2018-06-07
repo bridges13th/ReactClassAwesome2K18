@@ -35,9 +35,9 @@ export const blogReducer = (state = initialState, action) => {
 
         //Blog Add/Edit Actions (Workflow 1)
         case actionTypes.ADD_BLOG_REQUEST:
-            return {...state };
+            return { ...state };
         case actionTypes.ADD_BLOG_DONE:
-            return {...state, entries: state.entries.concat(action.blog)};
+            return { ...state, entries: state.entries.concat(action.blog) };
         case actionTypes.EDIT_BLOG:
             return { ...state, blogEntryToEdit: action.blogId };
         case actionTypes.SAVE_BLOG_REQUEST:
@@ -47,8 +47,8 @@ export const blogReducer = (state = initialState, action) => {
         case actionTypes.REMOVE_BLOG_REQUEST:
             return { ...state }
         case actionTypes.REMOVE_BLOG_DONE:
-            return { ...state, entries: state.entries.filter(e => e.id !== action.blogId)}
-        
+            return { ...state, entries: state.entries.filter(e => e.id !== action.blogId) }
+
 
         //Blog View Actions (Workflow 2)
         case actionTypes.ENTER_BLOG_VIEW:
@@ -77,6 +77,11 @@ export const blogReducer = (state = initialState, action) => {
                     ...state,
                     page: Number(action.newPage),
                 }
+
+        case actionTypes.ADD_COMMENT_REQUEST:
+            return state;
+        case actionTypes.ADD_COMMENT_DONE:
+            return state;
 
         default:
             return state;
