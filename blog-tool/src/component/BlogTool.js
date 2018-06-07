@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Entry } from './entry';
 
 //import minion tools here
 
@@ -9,19 +10,16 @@ export class BlogTool extends React.Component {
     }
 
     render() {
+        console.log("BlogTool", this.props.entries);
         return <React.Fragment>
             <span>Workflow 1: Add Entries!</span>
             <div>Workflow 2: Display all entries!</div>
             <div>
-                <ul>
-                    {this.props.entries.map(entry =>
-                        <li key={entry.id}>
-                            <div>Title: {entry.title}</div>
-                            <div>Published: {entry.published} </div>
-                            <div>Body: {entry.body}</div>
-                        </li>
-                    )}
-                </ul>
+
+                {(this.props.entries.length === 0) ? <div>"NOTHING!"</div> : 
+
+                <Entry entry={this.props.entries[0]} changePreview={this.props.changePreview} />
+                }
             </div>
         </React.Fragment>;
     }
