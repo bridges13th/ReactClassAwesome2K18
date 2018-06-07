@@ -15,7 +15,15 @@ export class Entry extends React.Component {
                 <h1>{this.props.entry.title}</h1>
                 <h2>{this.props.entry.published}</h2>
                 <p>{this.props.entry.body}</p>
-                <button type="button">Edit</button>   <button type="button" onclick="{() => this.props.changePreview()}">Back To Posts</button>             
+                <button
+                    type="button"
+
+
+                    onClick={() => {
+                        return this.props.changePreview()
+                    }}>
+                    Back To Posts
+                </button>
             </div>
         </React.Fragment>;
     }

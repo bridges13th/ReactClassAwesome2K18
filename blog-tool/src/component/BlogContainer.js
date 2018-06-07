@@ -7,6 +7,7 @@ import { BlogTool } from './BlogTool'
 import { loadAllBlogs } from '../actions/load-all-blogs'
 import * as PreviewActions from '../actions/preview-actions'
 import { changeBlogView, changePreview} from '../actions/change-blog-mode';
+import * as ModeActions from '../actions/change-blog-mode';
 
 //One container to rule them all
 const mapStateToPropsForBlogTool = state => {
@@ -30,8 +31,8 @@ const mapDispatchToPropsForBlogTool = dispatch => bindActionCreators({
     //workflow 2: Display Logs
     prevPage: PreviewActions.prevPage,
     nextPage: PreviewActions.nextPage,
-    changeBlogView,
-    changePreview,
+    changeBlogView: ModeActions.enterBlogViewActionCreator,
+    changePreview: ModeActions.enterPreviewActionCreator,
 }, dispatch);
 
 export const BlogToolContainer = connect(

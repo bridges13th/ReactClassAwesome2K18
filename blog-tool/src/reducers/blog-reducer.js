@@ -1,10 +1,10 @@
 import { actionTypes } from '../actions/blogActionTypes'
 
-const PREVIEW_MODE = 'PREVIEW_MODE';
-const BLOG_VIEW_MODE = 'BLOG_VIEW_MODE';
+export const PREVIEW_MODE = 'PREVIEW_MODE';
+export const BLOG_VIEW_MODE = 'BLOG_VIEW_MODE';
 
 const initialState = {
-    mode: '',   //"preview", "blogView"
+    mode: PREVIEW_MODE,   //"preview", "blogView"
     entries: [],    //Blog Entries
 
 
